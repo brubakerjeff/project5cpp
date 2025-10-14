@@ -1,5 +1,5 @@
 # CPPND: Capstone Snake Game Example
-
+# https://learn.udacity.com/nd213?version=4.0.13&partKey=44b5d2c3-0f2d-4514-8a3f-a0799282a2fa&lessonKey=a6587384-1ce7-4cc0-8698-ff338c6527a3&conceptKey=cc8b0740-fd8d-455a-b752-11d22d993c69
 This is a starter repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213). The code for this repo was inspired by [this](https://codereview.stackexchange.com/questions/212296/snake-game-in-c-with-sdl) excellent StackOverflow post and set of responses.
 
 <img src="snake_game.gif"/>

@@ -9,6 +9,9 @@ Renderer::Renderer(const std::size_t screen_width,
       screen_height(screen_height),
       grid_width(grid_width),
       grid_height(grid_height) {
+
+  SDL_Surface* gScreenSurface = NULL;
+  SDL_Surface* gHelloWorld = NULL;
   // Initialize SDL
   if (SDL_Init(SDL_INIT_VIDEO) < 0) {
     std::cerr << "SDL could not initialize.\n";
@@ -31,6 +34,21 @@ Renderer::Renderer(const std::size_t screen_width,
     std::cerr << "Renderer could not be created.\n";
     std::cerr << "SDL_Error: " << SDL_GetError() << "\n";
   }
+
+    gScreenSurface = SDL_GetWindowSurface( sdl_window );
+
+    gHelloWorld = SDL_LoadBMP( "hello.bmp" );
+
+    if (!gHelloWorld) {
+    std::cerr << "Unable to load image hello.bmp! SDL Error: " << SDL_GetError() << "\n";
+
+    }
+
+    SDL_BlitSurface( gHelloWorld, NULL, gScreenSurface, NULL );
+    SDL_UpdateWindowSurface( sdl_window );
+    std::cin.get(); // Waits for the user to press Enter
+
+
 }
 
 Renderer::~Renderer() {
