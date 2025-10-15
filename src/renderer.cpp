@@ -10,42 +10,42 @@ Renderer::Renderer(const std::size_t screen_width,
       grid_width(grid_width),
       grid_height(grid_height) {
 
-  SDL_Surface* gScreenSurface = NULL;
-  SDL_Surface* gHelloWorld = NULL;
-  SDL_Surface* gOne = NULL;
-  SDL_Surface* gTwo = NULL;
-  SDL_Surface* gThree = NULL;
-  // Initialize SDL
-  if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-    std::cerr << "SDL could not initialize.\n";
-    std::cerr << "SDL_Error: " << SDL_GetError() << "\n";
-  }
+    SDL_Surface* gScreenSurface = NULL;
+    SDL_Surface* gHelloWorld = NULL;
+    SDL_Surface* gOne = NULL;
+    SDL_Surface* gTwo = NULL;
+    SDL_Surface* gThree = NULL;
+    // Initialize SDL
+    if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+      std::cerr << "SDL could not initialize.\n";
+      std::cerr << "SDL_Error: " << SDL_GetError() << "\n";
+    }
 
-  // Create Window
-  sdl_window = SDL_CreateWindow("Snake Game", SDL_WINDOWPOS_CENTERED,
-                                SDL_WINDOWPOS_CENTERED, screen_width,
-                                screen_height, SDL_WINDOW_SHOWN);
+    // Create Window
+    sdl_window = SDL_CreateWindow("Snake Game", SDL_WINDOWPOS_CENTERED,
+                                  SDL_WINDOWPOS_CENTERED, screen_width,
+                                  screen_height, SDL_WINDOW_SHOWN);
 
-  if (nullptr == sdl_window) {
-    std::cerr << "Window could not be created.\n";
-    std::cerr << " SDL_Error: " << SDL_GetError() << "\n";
-  }
+    if (nullptr == sdl_window) {
+      std::cerr << "Window could not be created.\n";
+      std::cerr << " SDL_Error: " << SDL_GetError() << "\n";
+    }
 
-  // Create renderer
-  sdl_renderer = SDL_CreateRenderer(sdl_window, -1, SDL_RENDERER_ACCELERATED);
-  if (nullptr == sdl_renderer) {
-    std::cerr << "Renderer could not be created.\n";
-    std::cerr << "SDL_Error: " << SDL_GetError() << "\n";
-  }
+    // Create renderer
+    sdl_renderer = SDL_CreateRenderer(sdl_window, -1, SDL_RENDERER_ACCELERATED);
+    if (nullptr == sdl_renderer) {
+      std::cerr << "Renderer could not be created.\n";
+      std::cerr << "SDL_Error: " << SDL_GetError() << "\n";
+    }
 
     gScreenSurface = SDL_GetWindowSurface( sdl_window );
 
     gHelloWorld = SDL_LoadBMP( "sprites/speedprompt.bmp" );
- 
+  
     gOne = SDL_LoadBMP( "sprites/one.bmp" );
     gTwo = SDL_LoadBMP( "sprites/two.bmp" );
     gThree = SDL_LoadBMP( "sprites/three.bmp" );
- 
+  
 
     if (!gHelloWorld) {
       std::cerr << "Unable to load image hello.bmp! SDL Error: " << SDL_GetError() << "\n";
