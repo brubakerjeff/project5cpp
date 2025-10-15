@@ -18,6 +18,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
   Uint32 frame_duration;
   int frame_count = 0;
   bool running = true;
+  SDL_Event event;
 
   while (running) {
     frame_start = SDL_GetTicks();
