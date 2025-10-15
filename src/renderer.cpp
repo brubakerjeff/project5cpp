@@ -10,11 +10,8 @@ Renderer::Renderer(const std::size_t screen_width,
       grid_width(grid_width),
       grid_height(grid_height) {
 
-    SDL_Surface* gScreenSurface = NULL;
-    SDL_Surface* gHelloWorld = NULL;
-    SDL_Surface* gOne = NULL;
-    SDL_Surface* gTwo = NULL;
-    SDL_Surface* gThree = NULL;
+
+
     // Initialize SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
       std::cerr << "SDL could not initialize.\n";
@@ -38,37 +35,7 @@ Renderer::Renderer(const std::size_t screen_width,
       std::cerr << "SDL_Error: " << SDL_GetError() << "\n";
     }
 
-    gScreenSurface = SDL_GetWindowSurface( sdl_window );
 
-    gHelloWorld = SDL_LoadBMP( "sprites/speedprompt.bmp" );
-  
-    gOne = SDL_LoadBMP( "sprites/one.bmp" );
-    gTwo = SDL_LoadBMP( "sprites/two.bmp" );
-    gThree = SDL_LoadBMP( "sprites/three.bmp" );
-  
-
-    if (!gHelloWorld) {
-      std::cerr << "Unable to load image hello.bmp! SDL Error: " << SDL_GetError() << "\n";
-    }
-
-    SDL_Rect destRect;
-    destRect.x = 25;       // Horizontal position (left side)
-    destRect.y = 225;     // Vertical position (lower it by 200 pixels, adjust as needed)
-    destRect.w = 0;       // These can be 0 because SDL_BlitSurface ignores w/h of dest
-    destRect.h = 0;
-
-    SDL_BlitSurface( gHelloWorld, NULL, gScreenSurface, &destRect );
-
-    SDL_Rect destRect2;
-    destRect2.x = 175;       // Horizontal position (left side)
-    destRect2.y = 230;     // Vertical position (lower it by 200 pixels, adjust as needed)
-    destRect2.w = 0;       // These can be 0 because SDL_BlitSurface ignores w/h of dest
-    destRect2.h = 0;
-
-    SDL_BlitSurface( gOne, NULL, gScreenSurface, &destRect2 );
-
-    SDL_UpdateWindowSurface( sdl_window );
-    std::cin.get(); // Waits for the user to press Enter
 
 
 }
@@ -115,6 +82,46 @@ void Renderer::Render(Snake const snake, SDL_Point const &food) {
   SDL_RenderPresent(sdl_renderer);
 }
 
+void Renderer::RenderSpeedSelection() {
+
+    SDL_Surface* gScreenSurface = NULL;
+
+    
+    SDL_Surface* gHelloWorld = NULL;
+    SDL_Surface* gOne = NULL;
+    SDL_Surface* gTwo = NULL;
+    SDL_Surface* gThree = NULL;
+    gHelloWorld = SDL_LoadBMP( "sprites/speedprompt.bmp" );
+    gScreenSurface = SDL_GetWindowSurface( sdl_window );
+    gOne = SDL_LoadBMP( "sprites/one.bmp" );
+    gTwo = SDL_LoadBMP( "sprites/two.bmp" );
+    gThree = SDL_LoadBMP( "sprites/three.bmp" );
+  
+
+    if (!gHelloWorld) {
+      std::cerr << "Unable to load image hello.bmp! SDL Error: " << SDL_GetError() << "\n";
+    }
+
+    SDL_Rect destRect;
+    destRect.x = 25;       // Horizontal position (left side)
+    destRect.y = 225;     // Vertical position (lower it by 200 pixels, adjust as needed)
+    destRect.w = 0;       // These can be 0 because SDL_BlitSurface ignores w/h of dest
+    destRect.h = 0;
+
+    SDL_BlitSurface( gHelloWorld, NULL, gScreenSurface, &destRect );
+
+    SDL_Rect destRect2;
+    destRect2.x = 175;       // Horizontal position (left side)
+    destRect2.y = 230;     // Vertical position (lower it by 200 pixels, adjust as needed)
+    destRect2.w = 0;       // These can be 0 because SDL_BlitSurface ignores w/h of dest
+    destRect2.h = 0;
+
+    SDL_BlitSurface( gOne, NULL, gScreenSurface, &destRect2 );
+
+    SDL_UpdateWindowSurface( sdl_window );
+    std::cin.get(); // Waits for the user to press Enter
+
+}
 void Renderer::UpdateWindowTitle(int score, int fps) {
   std::string title{"Snake Score: " + std::to_string(score) + " FPS: " + std::to_string(fps)};
   SDL_SetWindowTitle(sdl_window, title.c_str());

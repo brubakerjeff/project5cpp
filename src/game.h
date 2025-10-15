@@ -9,8 +9,9 @@
 
 
 enum class GameMode {
-  Gameplay,
-  SetSpeed
+  SetSpeed,
+  Gameplay
+
 };
 
 class Game {
@@ -32,7 +33,7 @@ class Game {
   std::uniform_int_distribution<int> random_h;
 
   int score{0};
-  GameMode current_mode{GameMode::Gameplay};  // Default to Gameplay
+  GameMode current_mode{GameMode::SetSpeed};  // Default to Gameplay
 
   void PlaceFood();
   void Update();

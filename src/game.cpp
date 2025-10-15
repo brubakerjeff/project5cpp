@@ -26,8 +26,13 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake);
     Update();
-    renderer.Render(snake, food);
-
+    if (current_mode == GameMode::SetSpeed) {
+      renderer.RenderSpeedSelection();
+    } else 
+    {
+      renderer.Render(snake, food);
+    }
+    
     frame_end = SDL_GetTicks();
 
     // Keep track of how long each loop through the input/update/render cycle
