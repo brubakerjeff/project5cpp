@@ -119,7 +119,7 @@ void Renderer::RenderSpeedSelection() {
     SDL_BlitSurface( gOne, NULL, gScreenSurface, &destRect2 );
 
     SDL_UpdateWindowSurface( sdl_window );
-    std::cin.get(); // Waits for the user to press Enter
+   
 
 }
 void Renderer::UpdateWindowTitle(int score, int fps) {
