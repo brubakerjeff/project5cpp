@@ -1,2 +1,7 @@
 build/
 .github/**
+build/CMakeFiles/SnakeGame.dir/src/game.cpp.o.d
+.gitignore
+build/SnakeGame
+build/CMakeFiles/SnakeGame.dir/src/controller.cpp.o
+build/CMakeFiles/SnakeGame.dir/compiler_depend.internal

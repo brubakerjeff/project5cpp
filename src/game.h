@@ -6,13 +6,7 @@
 #include "controller.h"
 #include "renderer.h"
 #include "snake.h"
-
-
-enum class GameMode {
-  SetSpeed,
-  Gameplay
-
-};
+#include "game_mode.h"
 
 class Game {
  public:
