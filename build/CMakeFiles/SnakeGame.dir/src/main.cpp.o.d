@@ -288,6 +288,7 @@ CMakeFiles/SnakeGame.dir/src/main.cpp.o: \
  /usr/include/SDL2/SDL_shape.h /usr/include/SDL2/SDL_system.h \
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h \
  /usr/include/SDL2/SDL_locale.h /usr/include/SDL2/SDL_misc.h \
+ /mnt/c/code/project5cpp/src/game_mode.h \
  /mnt/c/code/project5cpp/src/game.h /usr/include/c++/11/random \
  /usr/include/c++/11/bits/random.h \
  /usr/include/c++/11/bits/uniform_int_dist.h \

@@ -3,6 +3,17 @@
 #include "SDL.h"
 #include "snake.h"
 #include "game_mode.h"
+
+void Controller::IncreaseSpeed(Snake &snake) const {
+  snake.speed += 0.02;
+  return;
+}
+
+void Controller::DecreaseSpeed(Snake &snake) const {
+  snake.speed -= 0.02;
+  return;
+}
+
 void Controller::ChangeDirection(Snake &snake, Snake::Direction input,
                                  Snake::Direction opposite) const {
   if (snake.direction != opposite || snake.size == 1) snake.direction = input;
@@ -19,6 +30,14 @@ void Controller::HandleInput(bool &running, Snake &snake, GameMode &gamemode) co
         if(gamemode == GameMode::SetSpeed) 
         {
            switch (e.key.keysym.sym) {
+            case SDLK_UP:
+              IncreaseSpeed(snake);
+              break;
+
+            case SDLK_DOWN:
+              DecreaseSpeed(snake);
+              break;
+
             case SDLK_RETURN:
               gamemode = GameMode::Gameplay;
               break;
@@ -27,6 +46,9 @@ void Controller::HandleInput(bool &running, Snake &snake, GameMode &gamemode) co
         else 
         {
          switch (e.key.keysym.sym) {
+          case SDLK_ESCAPE:
+            gamemode = GameMode::SetSpeed;
+            break;
           case SDLK_UP:
             ChangeDirection(snake, Snake::Direction::kUp,
                           Snake::Direction::kDown);
