@@ -15,6 +15,7 @@ Game::Game(std::size_t grid_width, std::size_t grid_height)
 void Game::workerThread(Controller const &controller, Renderer &renderer,
                std::size_t target_frame_duration) {
   while (running) {
+        controller.HandleInput(running, snake, current_mode, snake.speedMultiplier, isPaused);
   }
 }
 void Game::Run(Controller const &controller, Renderer &renderer,
@@ -33,7 +34,6 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     frame_start = SDL_GetTicks();
 
     // Input, Update, Render - the main game loop.
-    controller.HandleInput(running, snake, current_mode, snake.speedMultiplier, isPaused);
     if(!isPaused)
       Update();
 

@@ -25,6 +25,7 @@ class Game {
   Snake snake;
   Snakeai snake2;
   SDL_Point food;
+  std::atomic<bool> isPaused{false};
 
   std::random_device dev;
   std::mt19937 engine;
@@ -33,7 +34,7 @@ class Game {
   int speedMultiplier = 0;
   int score{0};
   GameMode current_mode{GameMode::SetSpeed};  // Default to Gameplay
-  std::atomic<bool> running{true};  // ✅ Use atomic for thread-safe access
+  std::atomic<bool> running{true};  //  Use atomic for thread-safe access
 
   void PlaceFood();
   void Update();

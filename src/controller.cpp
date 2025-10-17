@@ -20,7 +20,8 @@ void Controller::ChangeDirection(Snake &snake, Snake::Direction input,
   return;
 }
 
-void Controller::HandleInput(std::atomic<bool> &running, Snake &snake, GameMode &gamemode, int &speedMultiplier, bool &isPaused) const {
+void Controller::HandleInput(std::atomic<bool> &running, Snake &snake, 
+                      GameMode &gamemode, int &speedMultiplier, std::atomic<bool> &isPaused) const {
   SDL_Event e;
   while (SDL_PollEvent(&e)) {
     if (e.type == SDL_QUIT) {
