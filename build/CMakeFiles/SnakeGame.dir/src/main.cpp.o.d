@@ -288,7 +288,9 @@ CMakeFiles/SnakeGame.dir/src/main.cpp.o: \
  /usr/include/SDL2/SDL_shape.h /usr/include/SDL2/SDL_system.h \
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h \
  /usr/include/SDL2/SDL_locale.h /usr/include/SDL2/SDL_misc.h \
- /mnt/c/code/project5cpp/src/game_mode.h \
+ /mnt/c/code/project5cpp/src/game_mode.h /usr/include/c++/11/atomic \
+ /usr/include/c++/11/bits/atomic_base.h \
+ /usr/include/c++/11/bits/atomic_lockfree_defines.h \
  /mnt/c/code/project5cpp/src/game.h /usr/include/c++/11/random \
  /usr/include/c++/11/bits/random.h \
  /usr/include/c++/11/bits/uniform_int_dist.h \
@@ -298,4 +300,15 @@ CMakeFiles/SnakeGame.dir/src/main.cpp.o: \
  /usr/include/c++/11/pstl/glue_numeric_defs.h \
  /usr/include/c++/11/pstl/execution_defs.h \
  /mnt/c/code/project5cpp/src/renderer.h /usr/include/SDL2/SDL_ttf.h \
- /usr/include/SDL2/SDL.h
+ /usr/include/SDL2/SDL.h /mnt/c/code/project5cpp/src/snakeai.h \
+ /usr/include/c++/11/mutex /usr/include/c++/11/tuple \
+ /usr/include/c++/11/utility /usr/include/c++/11/bits/stl_relops.h \
+ /usr/include/c++/11/array /usr/include/c++/11/bits/uses_allocator.h \
+ /usr/include/c++/11/bits/invoke.h /usr/include/c++/11/chrono \
+ /usr/include/c++/11/ratio /usr/include/c++/11/ctime \
+ /usr/include/c++/11/bits/parse_numbers.h \
+ /usr/include/c++/11/bits/std_mutex.h \
+ /usr/include/c++/11/bits/unique_lock.h /usr/include/c++/11/thread \
+ /usr/include/c++/11/bits/std_thread.h /usr/include/c++/11/bits/refwrap.h \
+ /usr/include/c++/11/bits/unique_ptr.h \
+ /usr/include/c++/11/bits/this_thread_sleep.h

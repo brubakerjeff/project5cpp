@@ -3,11 +3,12 @@
 
 #include "snake.h"
 #include "game_mode.h"
+#include <atomic>
 
 
 class Controller {
  public:
-  void HandleInput(bool &running, Snake &snake, GameMode &gamemode,  int &speedMultiplier, bool &isPaused) const;
+  void HandleInput(std::atomic<bool> &running, Snake &snake, GameMode &gamemode,  int &speedMultiplier, bool &isPaused) const;
   void IncreaseSpeed(Snake &Snake,  int &speedMultiplier) const;
   void DecreaseSpeed(Snake &snake,  int &speedMultiplier) const;
  private:

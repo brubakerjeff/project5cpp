@@ -1,15 +1,22 @@
 #include "game.h"
 #include <iostream>
 #include "SDL.h"
-
+#include <thread>
+#include <functional> 
 Game::Game(std::size_t grid_width, std::size_t grid_height)
     : snake(grid_width, grid_height),
+    snake2(grid_width, grid_height),
       engine(dev()),
       random_w(0, static_cast<int>(grid_width - 1)),
       random_h(0, static_cast<int>(grid_height - 1)) {
   PlaceFood();
 }
 
+void Game::workerThread(Controller const &controller, Renderer &renderer,
+               std::size_t target_frame_duration) {
+  while (running) {
+  }
+}
 void Game::Run(Controller const &controller, Renderer &renderer,
                std::size_t target_frame_duration) {
   Uint32 title_timestamp = SDL_GetTicks();
@@ -17,7 +24,9 @@ void Game::Run(Controller const &controller, Renderer &renderer,
   Uint32 frame_end;
   Uint32 frame_duration;
   int frame_count = 0;
-  bool running = true;
+
+
+
   SDL_Event event;
   bool isPaused = 0;
   while (running) {
@@ -27,11 +36,22 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     controller.HandleInput(running, snake, current_mode, snake.speedMultiplier, isPaused);
     if(!isPaused)
       Update();
+
+
     if (current_mode == GameMode::SetSpeed) {
       renderer.RenderSpeedSelection();
     } else 
     {
-      renderer.Render(snake, food);
+        renderer.Render(snake, food);
+     /*std::thread t1([&renderer, this]() {
+      
+    });*
+
+   /* std::thread t2([&renderer, this]() {
+        renderer.Renderai(snake2);
+    });  */    // Join threads
+      //t1.join();
+     // t2.join();
     }
     
     frame_end = SDL_GetTicks();

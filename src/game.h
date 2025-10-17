@@ -6,8 +6,9 @@
 #include "controller.h"
 #include "renderer.h"
 #include "snake.h"
+#include "snakeai.h"
 #include "game_mode.h"
-
+#include <atomic>
 class Game {
  public:
   Game(std::size_t grid_width, std::size_t grid_height);
@@ -17,8 +18,12 @@ class Game {
   int GetSize() const;
   void SetMode(GameMode mode) { current_mode = mode; }
   GameMode GetMode() const { return current_mode; }
+  void workerThread(Controller const &controller, Renderer &renderer,
+               std::size_t target_frame_duration); 
+
  private:
   Snake snake;
+  Snakeai snake2;
   SDL_Point food;
 
   std::random_device dev;
@@ -28,6 +33,7 @@ class Game {
   int speedMultiplier = 0;
   int score{0};
   GameMode current_mode{GameMode::SetSpeed};  // Default to Gameplay
+  std::atomic<bool> running{true};  // ✅ Use atomic for thread-safe access
 
   void PlaceFood();
   void Update();

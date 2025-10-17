@@ -5,7 +5,8 @@
 #include "SDL.h"
 #include "SDL_ttf.h"
 #include "snake.h"
-
+#include "snakeai.h"
+#include <mutex>
 class Renderer {
  public:
   Renderer(const std::size_t screen_width, const std::size_t screen_height,
@@ -13,11 +14,14 @@ class Renderer {
   ~Renderer();
 
   void Render(Snake const snake, SDL_Point const &food);
+  void Renderai(Snakeai const snake);
+
   void UpdateWindowTitle(int score, int fps, float speedMultiplier);
   void RenderSpeedSelection();
  private:
   SDL_Window *sdl_window;
   SDL_Renderer *sdl_renderer;
+  std::mutex render_mutex;
 
   const std::size_t screen_width;
   const std::size_t screen_height;
