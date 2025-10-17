@@ -1,3 +1,7 @@
+/**
+ * @class controller
+ * @brief Manages the the input
+ */
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 

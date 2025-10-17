@@ -1,3 +1,13 @@
+
+/**
+ * @class Game
+ * @brief Manages the main game loop, state, and game logic for the Snake game.
+ * 
+ * The Game class encapsulates the core logic and state of the Snake game,
+ * including game initialization, update cycles, score tracking, and
+ * random food placement. It follows RAII principles by managing all
+ * resources via stack allocation or standard library containers.
+ */
 #ifndef GAME_H
 #define GAME_H
 

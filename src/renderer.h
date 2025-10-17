@@ -1,3 +1,8 @@
+
+/**
+ * @class controller
+ * @brief Manages the the rendering
+ */
 #ifndef RENDERER_H
 #define RENDERER_H
 

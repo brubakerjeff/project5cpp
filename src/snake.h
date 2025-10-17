@@ -1,3 +1,8 @@
+
+/**
+ * @class controller
+ * @brief Manages the snake 
+ */
 #ifndef SNAKE_H
 #define SNAKE_H
 

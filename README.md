@@ -32,6 +32,21 @@ Member data that is subject to an invariant is hidden from the user and accessed
 A mutex or lock is used in the project.
 1.  There is a   std::atomic<bool> isPaused{false};
 
+
+
+The project uses scope / Resource Acquisition Is Initialization (RAII) where appropriate.
+
+The project follows the Resource Acquisition Is Initialization pattern where appropriate, by allocating objects at compile-time, initializing objects when they are declared, and utilizing scope to ensure their automatic destruction.s
+
+1. snake.h/renderer.h,game.h and controller.h do not use new, malloc, delete or raw points. Objects are created and destroyed by their respective constructors/destructors or done at compile time.  So it is following RAII. 
+
+plementation details from their interfaces.
+
+All class member functions document their effects, either through function names, comments, or formal documentation.
+
+Member functions do not change the program state in undocumented ways.
+1. Doxygen has been added to the project.
+
 ## Dependencies for Running Locally
 * cmake >= 3.7
   * All OSes: [click here for installation instructions](https://cmake.org/install/)

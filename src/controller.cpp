@@ -1,3 +1,8 @@
+
+/**
+ * @class controller
+ * @brief Manages the the input
+ */
 #include "controller.h"
 #include <iostream>
 #include "SDL.h"
