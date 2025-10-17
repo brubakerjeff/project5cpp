@@ -6,7 +6,6 @@
 #include "controller.h"
 #include "renderer.h"
 #include "snake.h"
-#include "snakeai.h"
 #include "game_mode.h"
 #include <atomic>
 class Game {
@@ -23,7 +22,6 @@ class Game {
 
  private:
   Snake snake;
-  Snakeai snake2;
   SDL_Point food;
   std::atomic<bool> isPaused{false};
 

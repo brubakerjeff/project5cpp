@@ -5,7 +5,7 @@
 #include "SDL.h"
 #include "SDL_ttf.h"
 #include "snake.h"
-#include "snakeai.h"
+
 #include <mutex>
 class Renderer {
  public:
@@ -14,7 +14,6 @@ class Renderer {
   ~Renderer();
 
   void Render(Snake const snake, SDL_Point const &food);
-  void Renderai(Snakeai const snake);
 
   void UpdateWindowTitle(int score, int fps, float speedMultiplier);
   void RenderSpeedSelection();

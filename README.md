@@ -15,15 +15,23 @@ For the criteria of
    For void Controller::HandleInput, the pause input was added.
    
 One or more classes are added to the project with appropriate access specifiers for class members.
-  Game_Mode was added to the project
+1.  Game_Mode was added to the project
 
 
 The project makes use of references in function declarations.
 At least two variables are defined as references, or two functions use pass-by-reference in the project code.
-    controller.HandleInput(running, snake, current_mode, snake.speedMultiplier, isPaused) was updated to have two pass by reference;
+1.    controller.HandleInput(running, snake, current_mode, snake.speedMultiplier, isPaused) was updated to have two pass by reference;
 
 
+The project uses multithreading.
+
+The project uses multiple threads or async tasks in the execution.
 Member data that is subject to an invariant is hidden from the user and accessed via member methods.
+1.  There two threads one for renderring one for handling input
+
+A mutex or lock is used in the project.
+1.  There is a   std::atomic<bool> isPaused{false};
+
 ## Dependencies for Running Locally
 * cmake >= 3.7
   * All OSes: [click here for installation instructions](https://cmake.org/install/)
