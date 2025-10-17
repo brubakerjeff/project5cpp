@@ -4,13 +4,13 @@
 #include "snake.h"
 #include "game_mode.h"
 
-void Controller::IncreaseSpeed(Snake &snake) const {
-  snake.speed += 0.02;
+void Controller::IncreaseSpeed(Snake &snake, int &speedMultiplier) const {
+  speedMultiplier += 2;
   return;
 }
 
-void Controller::DecreaseSpeed(Snake &snake) const {
-  snake.speed -= 0.02;
+void Controller::DecreaseSpeed(Snake &snake, int &speedMultiplier) const {
+  speedMultiplier -= 2;
   return;
 }
 
@@ -20,7 +20,7 @@ void Controller::ChangeDirection(Snake &snake, Snake::Direction input,
   return;
 }
 
-void Controller::HandleInput(bool &running, Snake &snake, GameMode &gamemode) const {
+void Controller::HandleInput(bool &running, Snake &snake, GameMode &gamemode, int &speedMultiplier) const {
   SDL_Event e;
   while (SDL_PollEvent(&e)) {
     if (e.type == SDL_QUIT) {
@@ -31,11 +31,11 @@ void Controller::HandleInput(bool &running, Snake &snake, GameMode &gamemode) co
         {
            switch (e.key.keysym.sym) {
             case SDLK_UP:
-              IncreaseSpeed(snake);
+              IncreaseSpeed(snake,speedMultiplier);
               break;
 
             case SDLK_DOWN:
-              DecreaseSpeed(snake);
+              DecreaseSpeed(snake,speedMultiplier);
               break;
 
             case SDLK_RETURN:

@@ -1,6 +1,8 @@
 #include "renderer.h"
 #include <iostream>
 #include <string>
+#include <sstream>  // For std::ostringstream
+#include <iomanip>
 
 Renderer::Renderer(const std::size_t screen_width,
                    const std::size_t screen_height,
@@ -89,9 +91,7 @@ void Renderer::RenderSpeedSelection() {
     SDL_Surface* gThree = NULL;
     gHelloWorld = SDL_LoadBMP( "sprites/speedprompt.bmp" );
     gScreenSurface = SDL_GetWindowSurface( sdl_window );
-    gOne = SDL_LoadBMP( "sprites/one.bmp" );
-    gTwo = SDL_LoadBMP( "sprites/two.bmp" );
-    gThree = SDL_LoadBMP( "sprites/three.bmp" );
+
   
 
     if (!gHelloWorld) {
@@ -106,19 +106,16 @@ void Renderer::RenderSpeedSelection() {
 
     SDL_BlitSurface( gHelloWorld, NULL, gScreenSurface, &destRect );
 
-    SDL_Rect destRect2;
-    destRect2.x = 175;       // Horizontal position (left side)
-    destRect2.y = 230;     // Vertical position (lower it by 200 pixels, adjust as needed)
-    destRect2.w = 0;       // These can be 0 because SDL_BlitSurface ignores w/h of dest
-    destRect2.h = 0;
 
-    SDL_BlitSurface( gOne, NULL, gScreenSurface, &destRect2 );
 
     SDL_UpdateWindowSurface( sdl_window );
    
 
 }
-void Renderer::UpdateWindowTitle(int score, int fps) {
-  std::string title{"Snake Score: " + std::to_string(score) + " FPS: " + std::to_string(fps)};
+void Renderer::UpdateWindowTitle(int score, int fps, float speedMultiplier) {
+  std::ostringstream oss;
+  oss << std::fixed << std::setprecision(2) << speedMultiplier;  
+  std::string formattedValue = oss.str();
+  std::string title{"Snake Score: " + std::to_string(score) + " FPS: " + std::to_string(fps) + " SpeedMultiplier: " + formattedValue};
   SDL_SetWindowTitle(sdl_window, title.c_str());
 }

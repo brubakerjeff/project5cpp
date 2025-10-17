@@ -25,7 +25,7 @@ class Game {
   std::mt19937 engine;
   std::uniform_int_distribution<int> random_w;
   std::uniform_int_distribution<int> random_h;
-
+  int speedMultiplier = 0;
   int score{0};
   GameMode current_mode{GameMode::SetSpeed};  // Default to Gameplay
 
