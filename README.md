@@ -47,6 +47,10 @@ All class member functions document their effects, either through function names
 Member functions do not change the program state in undocumented ways.
 1. Doxygen has been added to the project.
 
+
+The project uses destructors appropriately.
+
+1. No classes use dynamically allocated memory
 ## Dependencies for Running Locally
 * cmake >= 3.7
   * All OSes: [click here for installation instructions](https://cmake.org/install/)
