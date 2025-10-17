@@ -299,8 +299,7 @@ CMakeFiles/SnakeGame.dir/src/main.cpp.o: \
  /usr/include/c++/11/bits/stl_numeric.h /usr/include/c++/11/bit \
  /usr/include/c++/11/pstl/glue_numeric_defs.h \
  /usr/include/c++/11/pstl/execution_defs.h \
- /mnt/c/code/project5cpp/src/renderer.h /usr/include/SDL2/SDL_ttf.h \
- /usr/include/SDL2/SDL.h /usr/include/c++/11/mutex \
+ /mnt/c/code/project5cpp/src/renderer.h /usr/include/c++/11/mutex \
  /usr/include/c++/11/tuple /usr/include/c++/11/utility \
  /usr/include/c++/11/bits/stl_relops.h /usr/include/c++/11/array \
  /usr/include/c++/11/bits/uses_allocator.h \
