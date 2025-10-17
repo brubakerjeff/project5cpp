@@ -19,13 +19,14 @@ void Game::Run(Controller const &controller, Renderer &renderer,
   int frame_count = 0;
   bool running = true;
   SDL_Event event;
-
+  bool isPaused = 0;
   while (running) {
     frame_start = SDL_GetTicks();
 
     // Input, Update, Render - the main game loop.
-    controller.HandleInput(running, snake, current_mode, snake.speedMultiplier);
-    Update();
+    controller.HandleInput(running, snake, current_mode, snake.speedMultiplier, isPaused);
+    if(!isPaused)
+      Update();
     if (current_mode == GameMode::SetSpeed) {
       renderer.RenderSpeedSelection();
     } else 

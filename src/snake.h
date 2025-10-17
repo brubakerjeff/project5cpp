@@ -24,7 +24,7 @@ class Snake {
   float speed{0.1f};
   int size{1};
   bool alive{true};
-  int speedMultiplier;
+  int speedMultiplier = 2;
   float head_x;
   float head_y;
   std::vector<SDL_Point> body;

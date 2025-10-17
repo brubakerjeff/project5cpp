@@ -4,12 +4,26 @@ The starter code has been enhanced to have a speed selection screen. The initial
 
 * Clicking Up and Down allows you to change the speed in the top top title.
 * Pressing enter will advance you to the next screen.
-
-<img src="snake_game.gif"/>
-
+* During gameplay pressing backspace will pause the game
 
 
+For the criteria of 
+"The project demonstrates an understanding of C++ functions and control structures."
+1. This is shown with void Controller::HandleInput
 
+2. The project accepts user input and processes the input.
+   For void Controller::HandleInput, the pause input was added.
+   
+One or more classes are added to the project with appropriate access specifiers for class members.
+  Game_Mode was added to the project
+
+
+The project makes use of references in function declarations.
+At least two variables are defined as references, or two functions use pass-by-reference in the project code.
+    controller.HandleInput(running, snake, current_mode, snake.speedMultiplier, isPaused) was updated to have two pass by reference;
+
+
+Member data that is subject to an invariant is hidden from the user and accessed via member methods.
 ## Dependencies for Running Locally
 * cmake >= 3.7
   * All OSes: [click here for installation instructions](https://cmake.org/install/)
